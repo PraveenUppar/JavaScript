@@ -1,0 +1,15 @@
+The system consists of four main parts:
+
+- Call Stack: 
+This is where JavaScript actually runs code. It handles one instruction at a time. If the stack is busy, nothing else happens (the UI freezes).
+
+- Web APIs: 
+These are separate threads provided by the Browser (or Node.js). They handle the "waiting" tasks like setTimeout, DOM events, or fetch.
+
+- Callback Queue: 
+Once a Web API is finished (e.g., the timer hits 0), it drops the callback function here. It waits here until the Call Stack is empty.
+
+- Event Loop: This is a continuous loop that checks two things:
+Is the Call Stack empty?
+Is there something in the Queue?
+If yes to both, move the item from Queue to Stack.
