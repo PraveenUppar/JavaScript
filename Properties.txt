@@ -1,0 +1,28 @@
+Javascript has the following -
+
+- Interpreted
+JavaScript is an interpreted language, meaning it's executed line-by-line at runtime by the JavaScript engine in the browser or server environment. 
+
+- Dynamically Typed
+Variables in JavaScript are not bound to a specific data type. Types are determined at runtime and can change as the program executes.
+
+var a = 1;
+a = "name";
+a = true;
+
+- Single threaded
+JavaScript executes code in a single-threaded environment, meaning it processes one task at a time.
+
+- Garbage collected
+JavaScript automatically manages memory allocation and deallocation through garbage collection, which helps prevent memory leaks by automatically reclaiming memory used by objects no longer in use.
+ 
+
+
+
+
+
+
+
+
+
+
