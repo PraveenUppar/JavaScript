@@ -78,7 +78,7 @@ class TodoApp {
   }
 
   async fetchTodos() {
-    const response = await fetch();
+    const response = await fetch("url");
     const data = await response.json();
     this.todos = data.slice(0, 10);
     render();
