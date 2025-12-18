@@ -6,33 +6,81 @@
 // 5. Persist using localStorage
 // 6. Fetch todos from an API
 
-// STARTER CODE:
+[
+  { id: 1, title: "Buy milk", completed: false },
+  { id: 2, title: "Walk dog", completed: true },
+];
 class TodoApp {
   constructor() {
-    this.todos = this.loadFromStorage();
+    this.todos = [];
+    this.todoId = 0;
+    this.init();
+  }
+
+  init() {
+    this.loadFromStorage();
+    this.render();
   }
 
   addTodo(title) {
-    // Implementation
+    let new_todo = {
+      id: todoId,
+      title: title,
+      completed: false,
+    };
+    this.todos.push(new_todo);
+    this.todoId++;
+    this.saveToStorage();
+    this.render();
   }
 
   deleteTodo(id) {
-    // Implementation
+    this.todos = this.todos.filter((todo) => id !== todo);
+    this.saveToStorage();
+    this.render();
   }
 
   toggleTodo(id) {
-    // Implementation
+    this.todos = this.todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, completed: !completed };
+      } else {
+        return todo;
+      }
+    });
+
+    this.saveToStorage();
+    this.render();
   }
 
   filter(status) {
-    // Implementation
+    if (status === "all") {
+      return this.todos;
+    }
+    if (status === "active") {
+      return (this.todos = this.todos.filter((todo) => !todo.completed));
+    }
+    if (status === "completed") {
+      return (this.todos = this.todos.filter((todo) => todo.completed));
+    }
   }
 
   saveToStorage() {
-    // Implementation
+    localStorage.setItem;
+    "my_todos", JSON.stringify(this.todos);
   }
 
   loadFromStorage() {
-    // Implementation
+    const data = localStorage.getItem("my_todos");
+    if (data) {
+      this.todos = JSON.parse(data);
+    }
+  }
+
+  async fetchTodos() {
+    const response = await fetch();
+    const data = await response.json();
+    this.todos = data.slice(0, 10);
+    render();
   }
 }
