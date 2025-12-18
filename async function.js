@@ -1,3 +1,52 @@
+// Callback
+function fetchData(callback) {
+  setTimeout(() => {
+    callback("Data fetched!");
+  }, 1000);
+}
+
+fetchData((data) => console.log(data));
+
+// Promises (states: pending, fulfilled, rejected)
+// Promise.then(), .catch(), .finally()
+
+// Promise
+const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Success!");
+    reject("Error!");
+  }, 1000);
+});
+
+myPromise
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error))
+  .finally(() => console.log("Done!"));
+
+// Promise chaining
+fetch("https://api.example.com/data")
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error));
+
+// Promise static methods
+
+// Promise.all - all must succeed
+Promise.all([promise1, promise2, promise3]).then((results) =>
+  console.log(results)
+);
+
+// Promise.race - first to settle wins
+Promise.race([promise1, promise2]).then((result) => console.log(result));
+
+// Promise.allSettled - all settle regardless of success
+Promise.allSettled([promise1, promise2]).then((results) =>
+  console.log(results)
+);
+
+// Promise.any - first to succeed wins
+Promise.any([promise1, promise2]).then((result) => console.log(result));
+
 // The Problem: Callback Hell
 
 getData((userId) => {

@@ -9,7 +9,12 @@ const greet2 = function (name) {
 };
 
 // Arrow function
-const greet3 = (name) => `Hello, ${name}!`;
+const greet3 = (name) => {
+  `Hello, ${name}!`;
+};
+// function divide(a,b){
+//   return a/b
+// }
 const divide = (a, b) => {
   if (b === 0) {
     console.error("Cannot divide by zero");
@@ -45,9 +50,8 @@ function calculateLater(num1, num2, onComplete) {
   console.log("Calculation started...");
   setTimeout(() => {
     const sum = num1 + num2;
-    // We pass the result 'sum' back into the callback function
     onComplete(sum);
-  }, 1500); // Wait 1.5 seconds
+  }, 1500);
 }
 calculateLater(10, 5, (result) => {
   console.log("The total is: " + result);
@@ -70,7 +74,3 @@ function wakeUp(name, callback) {
 wakeUp("John", (message) => {
   console.log(message);
 });
-
-// What is the difference between function declaration and function expression?
-// Explain arrow functions and their advantages.
-// What are rest parameters and when to use them?

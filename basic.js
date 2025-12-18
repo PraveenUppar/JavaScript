@@ -1,24 +1,9 @@
+// Variables (var, let, const)
+
 // Variable declarations and differences
 var a = 1; // Function scoped, can be redeclared
 let b = 2; // Block scoped, cannot be redeclared (can be reassigned)
 const c = 3; // Block scoped, cannot be redeclared and reassigned
-
-var globalVar = "I am global";
-{
-  let blockVar = "I am block scoped";
-  console.log(blockVar); // Works
-}
-// console.log(blockVar);  // ReferenceError
-
-const person = { name: "John" };
-person.name = "Jane"; // This works
-// person = {};  // This throws error - can't reassign const
-
-console.log(globalVar);
-
-// Hoisting
-console.log(a); // undefined (hoisted but not initialized)
-var x = 5;
 
 // Redeclaration
 var x = 1;
@@ -34,11 +19,13 @@ q = 2; // Allowed
 const z = 1;
 // z = 2;      // Error - cannot reassign
 
+// Data types (String, Number, Boolean, Null, Undefined)
 let number = 42; // Number
 let string = "Hello World"; // String
 let isActive = false; // Boolean
 let numbers = [1, 2, 3]; // Array
 
+// Operators (Arithmetic, Comparison, Logical)
 let sum = 10 + 5; // Arithmetic operator
 let isEqual = 10 === 10; // Comparison operator
 let isTrue = true && false; // Logical operator
@@ -71,3 +58,15 @@ null == undefined; // true
 0 === false; // false
 null === undefined; // false
 "" === 0; // false
+
+var globalVar = "I am global";
+{
+  let blockVar = "I am block scoped";
+  console.log(blockVar); // Works
+}
+// console.log(blockVar);  // ReferenceError
+console.log(globalVar);
+
+// Hoisting
+console.log(a); // undefined (hoisted but not initialized)
+var x = 5;

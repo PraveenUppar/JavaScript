@@ -5,6 +5,12 @@ let user3 = {
 };
 console.log("Pavi age is " + user.age);
 
+let car = {
+  brand: "Toyota",
+  model: "Camry",
+  year: 2020,
+};
+
 // Object of Objects
 const user1 = {
   name: "harkirat",
