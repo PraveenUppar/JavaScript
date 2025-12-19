@@ -65,7 +65,3 @@ console.log(mergedObj); // Output: { a: 1, b: 3, c: 4 }
 const user = { name: "Jen", age: 22 };
 const updatedUser = { ...user, location: "Philadelphia", age: 23 };
 console.log(updatedUser); // Output: { name: 'Jen', age: 23, location: 'Philadelphia' }
-
-// What is the difference between shallow and deep copy?
-// Explain object destructuring with examples.
-// What does the spread operator do with objects?

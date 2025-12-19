@@ -1,3 +1,15 @@
+// Cookies
+// Purpose: Authentication, user tracking, personalization, state management.
+// Capacity: Small (around 4KB).
+
+// localStorage
+// Purpose: Caching data, user preferences, offline storage.
+// Capacity: Larger (5-10MB).
+
+// sessionStorage
+// Purpose: Temporary session data (e.g., shopping cart, form data).
+// Capacity: Around 5MB.
+
 // localStorage - persists even after browser closes
 localStorage.setItem("key", "value");
 const value = localStorage.getItem("key");

@@ -1,68 +1,3 @@
-// Callback
-function fetchData(callback) {
-  setTimeout(() => {
-    callback("Data fetched!");
-  }, 1000);
-}
-
-fetchData((data) => console.log(data));
-
-// Promises (states: pending, fulfilled, rejected)
-// Promise.then(), .catch(), .finally()
-
-// Promise
-const myPromise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("Success!");
-    reject("Error!");
-  }, 1000);
-});
-
-myPromise
-  .then((data) => console.log(data))
-  .catch((error) => console.error(error))
-  .finally(() => console.log("Done!"));
-
-// Promise chaining
-fetch("https://api.example.com/data")
-  .then((response) => response.json())
-  .then((data) => console.log(data))
-  .catch((error) => console.error(error));
-
-// Promise static methods
-
-// Promise.all - all must succeed
-Promise.all([promise1, promise2, promise3]).then((results) =>
-  console.log(results)
-);
-
-// Promise.race - first to settle wins
-Promise.race([promise1, promise2]).then((result) => console.log(result));
-
-// Promise.allSettled - all settle regardless of success
-Promise.allSettled([promise1, promise2]).then((results) =>
-  console.log(results)
-);
-
-// Promise.any - first to succeed wins
-Promise.any([promise1, promise2]).then((result) => console.log(result));
-
-// The Problem: Callback Hell
-
-getData((userId) => {
-  console.log("Got user ID: " + userId);
-
-  getPosts(userId, (posts) => {
-    console.log("Got posts for user");
-
-    getComments(posts[0], (comments) => {
-      console.log("Got comments for first post");
-
-      // This triangle shape is "Callback Hell"
-    });
-  });
-});
-
 // The Modern Fix: Async / Await
 
 // async: Tells JavaScript "this function handles asynchronous tasks."
@@ -85,7 +20,6 @@ async function showUserComments() {
     console.error("Something went wrong:", error);
   }
 }
-
 showUserComments();
 
 // Basic async/await
@@ -105,9 +39,9 @@ async function fetchData() {
 async function fetchMultiple() {
   try {
     const [data1, data2, data3] = await Promise.all([
-      fetch("url1").then((r) => r.json()),
-      fetch("url2").then((r) => r.json()),
-      fetch("url3").then((r) => r.json()),
+      fetch("url1").then((res) => res.json()),
+      fetch("url2").then((res) => res.json()),
+      fetch("url3").then((res) => res.json()),
     ]);
     return { data1, data2, data3 };
   } catch (error) {
@@ -120,5 +54,28 @@ async function processMultiple() {
   for (let i = 0; i < 5; i++) {
     const result = await fetchData(i);
     console.log(result);
+  }
+}
+
+// POST Method
+async function postData(url) {
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name: "John", age: 30 }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error posting data:", error);
+    throw error; // Re-throw to handle it outside if needed
   }
 }

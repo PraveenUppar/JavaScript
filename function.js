@@ -8,18 +8,29 @@ const greet2 = function (name) {
   return `Hello, ${name}!`;
 };
 
-// Arrow function
+// Arrow function = provide a concise, shorter syntax for writing function expressions in JavaScript
 const greet3 = (name) => {
   `Hello, ${name}!`;
 };
-// function divide(a,b){
-//   return a/b
-// }
+
+// Regular Function
+const add = function (a, b) {
+  return a + b;
+};
+
+// Arrow Function
+const addArrow = (a, b) => a + b;
+// you have to return with brackets
+const addArrow_withbracket = (a, b) => {
+  return a + b;
+};
+
+// Regular Function
+function divide(a, b) {
+  return a / b;
+}
+// Arrow Function
 const divide = (a, b) => {
-  if (b === 0) {
-    console.error("Cannot divide by zero");
-    return null;
-  }
   return a / b;
 };
 
