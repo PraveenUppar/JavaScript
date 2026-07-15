@@ -1,11 +1,51 @@
-Take a phrase like ‘turpentine and turtles’ and translate it into its “whale talk” equivalent: ‘UUEEIEEAUUEE’.
+// Whale Talk Translator
 
-There are a few simple rules for translating text to whale language:
+// ============================================
+// STEP 1: Store the phrase to translate.
+// ============================================
+const phrase = "turpentine and turtles";
 
-There are no consonants. Only vowels excluding “y”.
-The u‘s and e‘s are extra long, so we must double them in our program.
-Once we have converted text to the whale language, the result is sung slowly, as is a custom in the ocean.
+// ============================================
+// STEP 2: Loop through the phrase character by character, and build up
+// a string containing only the vowels (a, e, i, o, u — no "y",
+// no consonants, no spaces).
+// ============================================
+let vowelsOnly = "";
 
-To accomplish this translation, we can use our knowledge of loops. Let’s get started!
+for (let i = 0; i < phrase.length; i++) {
+  const char = phrase[i];
 
-If you get stuck during this project or would like to see an experienced developer work through it, click “Get Unstuck“ to see a project walkthrough video.
+  if (
+    char === "a" ||
+    char === "e" ||
+    char === "i" ||
+    char === "o" ||
+    char === "u"
+  ) {
+    vowelsOnly += char;
+  }
+}
+
+// ============================================
+// STEP 3: Loop through vowelsOnly and build the whale translation.
+// Rules:
+// - Every vowel gets uppercased (whale talk is sung loudly!)
+// - "u" and "e" are extra long, so they get doubled
+// - All other vowels (a, i, o) appear once, uppercased
+// ============================================
+let whaleTalk = "";
+
+for (let i = 0; i < vowelsOnly.length; i++) {
+  const vowel = vowelsOnly[i];
+
+  if (vowel === "u" || vowel === "e") {
+    whaleTalk += vowel.toUpperCase() + vowel.toUpperCase();
+  } else {
+    whaleTalk += vowel.toUpperCase();
+  }
+}
+
+// ============================================
+// STEP 4: Print the result.
+// ============================================
+console.log(whaleTalk);

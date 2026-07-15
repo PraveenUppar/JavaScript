@@ -1,21 +1,53 @@
-Codecademy’s annual race is just around the corner! This year, we have a lot of participants. You have been hired to write a program that will register runners for the race and give them instructions on race day.
+// Codecademy Race Registration
 
-As a timeline, registration would look like this:registration-timeline
+// ============================================
+// STEP 1: Store a runner's age and whether they registered early.
+// Change these to test different runner scenarios.
+// ============================================
+const age = 24;
+const registeredEarly = true;
 
-Here’s how our registration works. There are adult runners (over 18 years of age) and youth runners (under 18 years of age). They can register early or late. Runners are assigned a race number and start time based on their age and registration.
+// ============================================
+// STEP 2: Determine if the runner is an adult or youth. The project
+// says runners "exactly 18" need to be handled — the natural reading
+// of "adult runners (over 18)" vs "youth (under 18)" leaves 18 as a
+// gap, so we resolve it by treating age >= 18 as adult (the more
+// common convention, and matches "adult" starting at 18 in most
+// real-world contexts).
+// ============================================
+const isAdult = age >= 18;
 
-Race number:
+// ============================================
+// STEP 3: Assign a race number based on age and registration timing.
+// - Early adults: number at or above 1000 (up to 9999, picked randomly)
+// - Everyone else (late adults, all youth): number below 1000
+// ============================================
+let raceNumber;
 
-Early adults receive a race number at or above 1000.
-All others receive a number below 1000.
-Start time:
+if (isAdult && registeredEarly) {
+  raceNumber = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
+} else {
+  raceNumber = Math.floor(Math.random() * 1000);
+}
 
-Adult registrants run at 9:30 am or 11:00 am.
-Early adults run at 9:30 am.
-Late adults run at 11:00 am.
-Youth registrants run at 12:30 pm (regardless of registration).
-But we didn’t plan for runners that are exactly 18! We’ll handle that by the end of the project.
+// ============================================
+// STEP 4: Assign a start time based on age and registration timing.
+// - Early adults: 9:30 am
+// - Late adults: 11:00 am
+// - Youth (any registration time): 12:30 pm
+// ============================================
+let startTime;
 
-If you get stuck during this project or would like to see an experienced developer work through it, click “Get Unstuck” to see a project walkthrough video.
+if (isAdult) {
+  startTime = registeredEarly ? "9:30 am" : "11:00 am";
+} else {
+  startTime = "12:30 pm";
+}
 
-Code review available when you’re done
+// ============================================
+// STEP 5: Print the runner's registration details.
+// ============================================
+console.log(`Age: ${age}`);
+console.log(`Registered early: ${registeredEarly}`);
+console.log(`Race number: ${raceNumber}`);
+console.log(`Start time: ${startTime}`);

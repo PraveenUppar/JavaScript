@@ -1,9 +1,46 @@
-Dogs mature at a faster rate than human beings. We often say a dog’s age can be calculated in dog years to account for their growth compared to a human of the same age. In some ways, we could say that time moves quickly for dogs — 8 years in a human’s life equates to 45 years in a dog’s life. How old would you be if you were a dog?
+// Human Age to Dog Years Converter
 
-Here’s how you convert your age from “human years” to “dog years”:
+// ============================================
+// STEP 1: Store your age in human years. Change this to your own age.
+// ============================================
+const age = 30;
 
-The first two years of a dog’s life count as 10.5 dog years each.
-Each year following equates to 4 dog years.
-Before you start doing the math in your head, let a computer take care of it! With your knowledge of math operators and variables, use JavaScript to convert your human age into dog years.
+// ============================================
+// STEP 2: Handle the first two years, which count as 10.5 dog years
+// each — 21 dog years total for humans aged 2 or older.
+// If age is less than 2, this step needs to scale proportionally
+// instead (see Step 3).
+// ============================================
+const firstTwoYearsInDogYears = 21;
 
-If you get stuck during this project or would like to see an experienced developer work through it, click “Get Unstuck” to see a project walkthrough video.
+// ============================================
+// STEP 3: Calculate dog years for ages under 2, in case someone plugs
+// in an age like 1 or 1.5. Each of the first two years is 10.5 dog
+// years, so this just scales age by 10.5.
+// ============================================
+const underTwoInDogYears = age * 10.5;
+
+// ============================================
+// STEP 4: For age 2 and up, calculate the dog years from the age
+// remaining after the first two years, at 4 dog years per year.
+// ============================================
+const remainingYears = age - 2;
+const remainingYearsInDogYears = remainingYears * 4;
+
+// ============================================
+// STEP 5: Combine everything into the total dog age, using a
+// conditional to pick the right calculation based on age.
+// ============================================
+let dogYears;
+
+if (age < 2) {
+  dogYears = underTwoInDogYears;
+} else {
+  dogYears = firstTwoYearsInDogYears + remainingYearsInDogYears;
+}
+
+// ============================================
+// STEP 6: Print the result.
+// ============================================
+console.log(`You are ${age} years old in human years.`);
+console.log(`In dog years, you are ${dogYears} years old!`);

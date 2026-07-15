@@ -1,51 +1,60 @@
-As a seasoned athlete, one of your favorite activities is running marathons. You use a service called Training Days that sends you a message for the event you signed up for and the days you have left to train.
+// As a seasoned athlete, one of your favorite activities is running
+// marathons. This program is being refactored to fix variable scope
+// issues so it's more maintainable and less error-prone.
 
-Since you also code, Training Days has asked you to help them solve a problem: The program currently uses the wrong scope for its variables. They know this can be troublesome as their service evolves. In this project you will make Training Days more maintainable and less error-prone by fixing variable scopes.
-
-If you get stuck during this project or would like to see an experienced developer work through it, click “Get Unstuck“ to see a project walkthrough video.
-
-// The scope of `random` is too loose 
-const random = Math.floor(Math.random() * 3);
-
+// FIX: `random` was declared at the top level (too loose) even though
+// it's only ever used inside getRandEvent(). Moving it inside the
+// function keeps it scoped to where it's actually needed.
 const getRandEvent = () => {
+  const random = Math.floor(Math.random() * 3);
+
   if (random === 0) {
-    return 'Marathon';
+    return "Marathon";
   } else if (random === 1) {
-    return 'Triathlon';
+    return "Triathlon";
   } else if (random === 2) {
-    return 'Pentathlon';
+    return "Pentathlon";
   }
 };
 
-// The scope of `days` is too tight 
-const getTrainingDays = event => {
+// FIX: `days` was declared with `let` inside each if/else block, so it
+// was block-scoped to that block only — the `return days;` line
+// outside the blocks couldn't see it (this would actually throw a
+// ReferenceError as originally written). Declaring `let days` once,
+// outside the if/else chain, lets each branch assign to the same
+// variable, which is then visible at the return.
+const getTrainingDays = (event) => {
+  let days;
 
-  if (event === 'Marathon') {
-    let days = 50;
-  } else if (event === 'Triathlon') {
-    let days = 100;
-  } else if (event === 'Pentathlon') {
-    let days = 200;
+  if (event === "Marathon") {
+    days = 50;
+  } else if (event === "Triathlon") {
+    days = 100;
+  } else if (event === "Pentathlon") {
+    days = 200;
   }
 
   return days;
 };
 
-// The scope of `name` is too tight 
-const logEvent = event => {
-  const name = 'Nala';
+// FIX: `name` was redeclared separately inside both logEvent and
+// logTime (too tight, and duplicated). Now it's passed in as a
+// parameter to both functions instead, so there's a single source of
+// truth defined once at the top level.
+const logEvent = (name, event) => {
   console.log(`${name}'s event is: ${event}`);
 };
 
-const logTime = days => {
-  const name = 'Nala';
+const logTime = (name, days) => {
   console.log(`${name}'s time to train is: ${days} days`);
 };
 
 const event = getRandEvent();
 const days = getTrainingDays(event);
-// Define a `name` variable. Use it as an argument after updating logEvent and logTime 
 
+// FIX: `name` is now defined once here, and passed as an argument into
+// both logEvent and logTime below.
+const name = "Nala";
 
-logEvent(event);
-logTime(days);
+logEvent(name, event);
+logTime(name, days);

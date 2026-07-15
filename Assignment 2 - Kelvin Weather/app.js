@@ -1,11 +1,26 @@
-Deep in his mountainside meteorology lab, the mad scientist Kelvin has mastered weather prediction.
+// Kelvin's Kelvin-to-Celsius-to-Fahrenheit Converter
 
-Recently, Kelvin began publishing his weather forecasts on his website. However, there’s a problem: All of his forecasts describe the temperature in Kelvin.
+// ============================================
+// STEP 1: Store the forecasted temperature in Kelvin as a variable.
+// ============================================
+const kelvin = 283;
 
-With our knowledge of JavaScript, let’s convert Kelvin to Celsius, and then to Fahrenheit.
+// ============================================
+// STEP 2: Convert Kelvin to Celsius.
+// Formula: celsius = kelvin - 273
+// ============================================
+const celsius = kelvin - 273;
 
-For example, 283 K converts to 10 °C, which converts to 50 °F.
+// ============================================
+// STEP 3: Convert Celsius to Fahrenheit.
+// Formula: fahrenheit = celsius * (9/5) + 32
+// ============================================
+const fahrenheit = celsius * (9 / 5) + 32;
 
-If you get stuck during this project or would like to see an experienced developer work through it, click “Get Unstuck” to see a project walkthrough video.
-
-Code review available when you’re done
+// ============================================
+// STEP 4: Print out all three temperatures so we can verify the
+// conversion chain is correct.
+// ============================================
+console.log(`${kelvin} K`);
+console.log(`${celsius} °C`);
+console.log(`${fahrenheit} °F`);

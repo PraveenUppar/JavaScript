@@ -1,9 +1,42 @@
-Did you know that giraffes sleep 4.6 hours a day? We humans need more than that. If we don’t sleep enough, we accumulate sleep debt. In this project we’ll calculate if you’re getting enough sleep each week using a sleep debt calculator.
+// Sleep Debt Calculator
 
-The program will determine the actual and ideal hours of sleep for each night of the last week.
+// ============================================
+// STEP 1: Store the actual hours slept each night of the last week in
+// an array. Change these values to reflect your own week.
+// ============================================
+const getSleepHours = (day) => {
+  const actualSleepHours = {
+    monday: 8,
+    tuesday: 7,
+    wednesday: 6,
+    thursday: 7.5,
+    friday: 5,
+    saturday: 9,
+    sunday: 8,
+  };
+  return actualSleepHours[day];
+};
 
-Finally, it will calculate, in hours, how far you are from your weekly sleep goal.
+// ============================================
+// STEP 2: Calculate the actual total sleep hours across all seven
+// nights, using getSleepHours() for each day.
+// ============================================
+const calculateSleepHours = () => {
+  const monday = getSleepHours("monday");
+  const tuesday = getSleepHours("tuesday");
+  const wednesday = getSleepHours("wednesday");
+  const thursday = getSleepHours("thursday");
+  const friday = getSleepHours("friday");
+  const saturday = getSleepHours("saturday");
+  const sunday = getSleepHours("sunday");
 
-If you get stuck during this project or would like to see an experienced developer work through it, click “Get Unstuck” to see a project walkthrough video.
+  return (
+    monday + tuesday + wednesday + thursday + friday + saturday + sunday
+  );
+};
 
-Code review available when you’re done
+// ============================================
+// STEP 3: Store your ideal hours of sleep per night, and calculate the
+// ideal total for the week (ideal hours × 7 nights).
+// ============================================
+const
