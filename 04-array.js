@@ -1,8 +1,23 @@
 // Array creation
 const numbers = [1, 2, 3, 4, 5];
 
+// 1. Traditional Function
+function add(i) {
+  return i * 2;
+}
+
+// 2. Arrow Function (Long Form)
+(i) => {
+  return i * 2;
+};
+
+// 3. Arrow Function (Short Form)
+(i) => i * 2;
+
 // map - transform each element
-numbers.map((i) => i * 2); // [2, 4, 6, 8, 10]
+numbers.map((i) => {
+  return i * 2;
+}); // [2, 4, 6, 8, 10]
 
 // filter - keep only matching elements
 numbers.filter((i) => i > 2); // [3, 4, 5]

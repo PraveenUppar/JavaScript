@@ -5,7 +5,7 @@
 const myPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve("Success!");
-    // reject("Error!");
+    reject("Error!");
   }, 1000);
 });
 
@@ -24,7 +24,7 @@ fetch("https://api.example.com/data")
 
 // Promise.all - all must succeed
 Promise.all([promise1, promise2, promise3]).then((results) =>
-  console.log(results)
+  console.log(results),
 );
 
 // Promise.race - first to settle wins
@@ -32,7 +32,7 @@ Promise.race([promise1, promise2]).then((result) => console.log(result));
 
 // Promise.allSettled - all settle regardless of success
 Promise.allSettled([promise1, promise2]).then((results) =>
-  console.log(results)
+  console.log(results),
 );
 
 // Promise.any - first to succeed wins

@@ -21,9 +21,11 @@ console.log("Count4");
 function fetchDataCallback() {
   console.log("Data fetched");
 }
+
 function fetchData() {
   setTimeout(fetchDataCallback, 1000);
 }
+
 fetchData();
 
 // Example with normal function
