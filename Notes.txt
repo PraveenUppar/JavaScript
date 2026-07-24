@@ -1,44 +1,38 @@
-Javascript has the following -
+JavaScript Revision - Key Concepts
+==================================
 
-- Interpreted
-JavaScript is an interpreted language, meaning it's executed line-by-line at runtime by the JavaScript engine in the browser or server environment. 
+JavaScript is the core language used in browsers and also the language that Node.js runs outside the browser.
 
-- Dynamically Typed
-Variables in JavaScript are not bound to a specific data type. Types are determined at runtime and can change as the program executes.
+How to use this folder:
+1. Read the numbered files in order.
+2. Run Node-friendly files with: node filename.js
+3. For DOM files, create/open an HTML page and connect the script.
+4. Practice after every few topics.
+5. Complete assignments without looking at solutions first.
 
-var a = 1;
-a = "name";
-a = true;
+JavaScript Learning Path:
+1. Basics: values, variables, comments, console
+2. Data types: string, number, boolean, null, undefined, object, array, symbol, bigint
+3. Operators: arithmetic, comparison, logical, assignment, ternary
+4. Control flow: if, else, switch
+5. Loops: for, while, do while, for...of, for...in
+6. Functions: declarations, expressions, arrow functions, parameters, return
+7. Arrays: push, pop, map, filter, reduce, find, some, every
+8. Objects: properties, methods, nested objects, destructuring
+9. Strings and numbers: common methods and formatting
+10. Scope and hoisting: var, let, const, block scope, function scope
+11. DOM basics: document, selectors, changing text/style/classes
+12. Events: click, input, submit, event object
+13. Async JavaScript: callbacks, promises, async/await
+14. Fetch API: calling APIs from browser JavaScript
+15. Error handling: try/catch, throwing errors, validation
 
-- Single threaded
-JavaScript executes code in a single-threaded environment, meaning it processes one task at a time.
+JavaScript vs Node.js:
+- JavaScript is the language.
+- Node.js is a runtime that runs JavaScript outside the browser.
+- Browser JavaScript has window, document, DOM, localStorage, fetch.
+- Node.js has global, process, fs, path, http.
+- Both share core language features like variables, functions, arrays, objects, promises, and async/await.
 
-- Garbage collected
-JavaScript automatically manages memory allocation and deallocation through garbage collection, which helps prevent memory leaks by automatically reclaiming memory used by objects no longer in use.
- 
-
- 
-The system consists of four main parts:
-
-- Call Stack: 
-This is where JavaScript actually runs code. It handles one instruction at a time. If the stack is busy, nothing else happens (the UI freezes).
-
-- Web APIs: 
-These are separate threads provided by the Browser (or Node.js). They handle the "waiting" tasks like setTimeout, DOM events, or fetch.
-
-- Callback Queue: 
-Once a Web API is finished (e.g., the timer hits 0), it drops the callback function here. It waits here until the Call Stack is empty.
-
-- Event Loop: This is a continuous loop that checks two things:
-Is the Call Stack empty?
-Is there something in the Queue?
-If yes to both, move the item from Queue to Stack.
-
-
-
-
-
-
-
-
-
+Revision rule:
+Do not only read. Type examples, change values, break code, fix it, then build the assignment.
