@@ -11,8 +11,44 @@
 // 5. Support operators: +, -, *, /
 // 6. Return "Invalid operator" for unsupported operators
 // 7. Test the calculator with at least 8 examples
-//
-// Bonus:
-// - Add power operator **
-// - Add percentage calculation
-// - Accept numbers from process.argv
+
+function add(num1, num2) {
+  return num1 + num2;
+}
+
+function sub(num1, num2) {
+  return num1 - num2;
+}
+
+function mul(num1, num2) {
+  return num1 * num2;
+}
+
+function div(num1, num2) {
+  if (num2 === 0) {
+    return "Not possible to divide by zero";
+  } else {
+    return num1 / num2;
+  }
+}
+
+function calculator(num1, num2, opertator) {
+  if (opertator === "+") {
+    return add(num1, num2);
+  } else if (opertator === "-") {
+    return sub(num1, num2);
+  } else if (opertator === "*") {
+    return mul(num1, num2);
+  } else if (opertator == "/") {
+    return div(num1, num2);
+  } else {
+    return "Invalid Operator";
+  }
+}
+
+console.log(calculator(2, 2, "+"));
+console.log(calculator(2, 2, "-"));
+console.log(calculator(2, 2, "*"));
+console.log(calculator(2, 2, "/"));
+console.log(calculator(2, 0, "/"));
+console.log(calculator(2, 2, "]"));

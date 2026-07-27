@@ -1,5 +1,4 @@
 // Objects
-// Run: node 08-objects.js
 
 let student = {
   name: "Praveen",

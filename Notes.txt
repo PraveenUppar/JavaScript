@@ -34,5 +34,4 @@ JavaScript vs Node.js:
 - Node.js has global, process, fs, path, http.
 - Both share core language features like variables, functions, arrays, objects, promises, and async/await.
 
-Revision rule:
-Do not only read. Type examples, change values, break code, fix it, then build the assignment.
+
