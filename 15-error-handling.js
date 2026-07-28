@@ -1,6 +1,7 @@
 // Error Handling
 // Run: node 15-error-handling.js
 
+// Basic error handling
 try {
   let result = JSON.parse('{"name":"Praveen"}');
   console.log(result.name);
@@ -8,6 +9,7 @@ try {
   console.error("Invalid JSON:", error.message);
 }
 
+// custom error handling
 function divide(a, b) {
   if (b === 0) {
     throw new Error("Cannot divide by zero");
@@ -27,7 +29,8 @@ function validateUser(user) {
   const errors = [];
 
   if (!user.name) errors.push("Name is required");
-  if (!user.email || !user.email.includes("@")) errors.push("Valid email is required");
+  if (!user.email || !user.email.includes("@"))
+    errors.push("Valid email is required");
   if (user.age < 18) errors.push("Age must be at least 18");
 
   return errors;
